@@ -1,4 +1,6 @@
-alert("Aqui podra calcular el monto a pagar en relacion a la cantidad de cuotas ofrecidas con sus respectivos intereses")
+let nombresAutorizados = []
+
+alert("Aqui podra calcular el monto a pagar en relacion a la cantidad de cuotas ofrecidas con sus respectivos intereses");
 
 let monto = parseInt(prompt("Ingrese el monto a abonar: "));
 
@@ -9,18 +11,24 @@ while(cuotas != "3" && cuotas !="6" && cuotas != "12" ) {
 }
 
 let calculoCuotas = (monto,interes,cuotas) => {
-    return (monto * interes) / cuotas;
-}
+    return (monto * interes) / cuotas
+};
+
+const listaDeIntereses = [] ;
+
+listaDeIntereses.push(1.21);
+listaDeIntereses.push(1.36);
+listaDeIntereses.unshift(1.13);
 
 switch(cuotas){
     case 3:
-        alert("Usted debera pagar 3 cuotas de " + calculoCuotas(monto,1.13,cuotas) +  " resultando en un monto total aproximado de " + monto * 1.13);
+        alert("Usted debera pagar 3 cuotas de " + calculoCuotas(monto,listaDeIntereses[0],cuotas).toFixed(2) +  " resultando en un monto total aproximado de " + (monto * listaDeIntereses[0]).toFixed(2));
         break;
     case 6:
-        alert("Usted debera pagar 6 cuotas de " + calculoCuotas(monto,1.21,cuotas) +  " resultando en un monto total aproximado de " + monto * 1.21);
+        alert("Usted debera pagar 6 cuotas de " + calculoCuotas(monto,listaDeIntereses[1],cuotas).toFixed(2) +  " resultando en un monto total aproximado de " + (monto * listaDeIntereses[1]).toFixed(2));
         break;
     case 12:
-        alert("Usted debera pagar 12 cuotas de " + calculoCuotas(monto,1.36,cuotas) +  " resultando en un monto total aproximado de " + monto * 1.36);
+        alert("Usted debera pagar 12 cuotas de " + calculoCuotas(monto,listaDeIntereses[2],cuotas).toFixed(2) +  " resultando en un monto total aproximado de " + (monto * listaDeIntereses[2]).toFixed(2));
         break;
     default:
         alert("?")
